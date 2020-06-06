@@ -25,7 +25,7 @@ export class BmiComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.bmiService.getHello().subscribe(result => (this.hello = result));
+    // this.bmiService.getHello().subscribe(result => (this.hello = result));
   }
 
   onSubmit(data) {
