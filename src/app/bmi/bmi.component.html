@@ -1,11 +1,11 @@
 <h1>{{ hello | async }}</h1>
-<h1>BMI calculation</h1>
 <form class="form" [formGroup]="bmiForm" (ngSubmit)="onSubmit(bmiForm.value)">
-	<mat-form-field hintLabel="In kilograms">
+	<h1>BMI calculation</h1>
+	<mat-form-field class="input" hintLabel="In kilograms">
 		<input formControlName="weight" matInput maxlength="10" placeholder="Input your weight">
   </mat-form-field>
-		<mat-form-field hintLabel="In centimeters">
+		<mat-form-field class="input" hintLabel="In centimeters">
 			<input formControlName="height" matInput maxlength="10" placeholder="Input your height">
   </mat-form-field>
-			<button class="button" type="submit">Calculate</button>
+			<button class="button" mat-raised-button color="primary" type="submit">Calculate</button>
 </form>
