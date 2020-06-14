@@ -13,7 +13,7 @@ import { catchError, retry } from "rxjs/operators";
 })
 export class BmiComponent implements OnInit {
   durationInSeconds = 1;
-  hello;
+  result;
   bmiForm;
 
   constructor(
@@ -28,30 +28,10 @@ export class BmiComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.bmiService.getHello().subscribe(result => (this.hello = result));
   }
 
   onSubmit(data) {
+    this.bmiService.getBmiResult(data.weight, data.height).subscribe(result => (this.result = result));
     this.bmiForm.reset();
-
-    console.warn("Your data has been submitted", data);
-
-    this._snackBar.openFromComponent(PopupComponent, {
-      duration: this.durationInSeconds * 1000,
-      panelClass: 'center'
-    });
   }
 }
-
-@Component({
-  selector: "popup",
-  templateUrl: "popup.html",
-  styles: [
-    `
-      .popup {
-        color: hotpink;
-      }
-    `
-  ]
-})
-export class PopupComponent {}

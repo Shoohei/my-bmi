@@ -1,11 +1,18 @@
-<h1>{{ hello | async }}</h1>
-<form class="form" [formGroup]="bmiForm" (ngSubmit)="onSubmit(bmiForm.value)">
-	<h1>BMI calculation</h1>
-	<mat-form-field class="input" hintLabel="In kilograms">
-		<input formControlName="weight" matInput maxlength="10" placeholder="Input your weight">
+<div class="page">
+	<form [formGroup]="bmiForm" (ngSubmit)="onSubmit(bmiForm.value)">
+		<h1>BMI calculation</h1>
+		<mat-form-field class="input" hintLabel="In kilograms">
+			<input formControlName="weight" matInput maxlength="10" placeholder="Input your weight">
   </mat-form-field>
-		<mat-form-field class="input" hintLabel="In centimeters">
-			<input formControlName="height" matInput maxlength="10" placeholder="Input your height">
+			<mat-form-field class="input" hintLabel="In centimeters">
+				<input formControlName="height" matInput maxlength="10" placeholder="Input your height">
   </mat-form-field>
-			<button class="button" mat-raised-button color="primary" type="submit">Calculate</button>
-</form>
+				<p style="display:flex; justify-content:flex-end; width:100%; padding:0;">
+					<button mat-raised-button color="primary" type="submit">Calculate</button>
+				</p>
+	</form>
+
+  <h1 *ngIf="result">Result</h1>
+	<p>{{ result }}</p>
+
+</div>

@@ -5,10 +5,16 @@ import { HttpClient } from "@angular/common/http";
 export class BmiService {
   constructor(private http: HttpClient) {}
 
-  getHello() {
-    return this.http.get("http://localhost:8080/hello", {
+  getBmiResult(weight, height) {
+    console.warn("getBmiResult", weight, height);
+
+    return this.http.get("https://cors-anywhere.herokuapp.com/https://bmi-shoohei.an.r.appspot.com/bmi", {
       responseType: "text",
-      observe: 'response'
+      observe: 'body',
+      params: {
+        weight: weight,
+        height: height
+      }
     });
   }
 }
