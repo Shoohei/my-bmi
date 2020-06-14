@@ -8,3 +8,10 @@
   flex-direction: column;
   width: 100%;
 }
+
+.button_right {
+  display:flex; 
+  justify-content:flex-end; 
+  width:100%; 
+  padding:0;
+}
